@@ -49,6 +49,14 @@ describe('demo routes for weight', () => {
         expect(response.body).toEqual({ id: 1, pokemon: 'Venonat', powers: 'Compound-eyes' });
       });
   });
+  it('should delete a pokemon by its id using DELETE /:id route', async () => {
+    return request(app)
+      .delete('/api/pokemon/ability/1')
+      .send({ pokemon: 'venonat', powers: 'compound-eyes' })
+      .then(response => {
+        expect(response.body).toEqual({ id: 1, pokemon: 'venonat', powers: 'compound-eyes' });
+      });
+  });
   afterAll(() => {
     pool.end();
   });
