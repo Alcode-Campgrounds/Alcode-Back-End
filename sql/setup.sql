@@ -3,5 +3,5 @@ DROP TABLE IF EXISTS weight;
 CREATE TABLE weight (
     id SERIAL PRIMARY KEY,
     pokemon TEXT NOT NULL,
-    weight INTEGER NOT NULL
+    pounds INTEGER NOT NULL
 )
