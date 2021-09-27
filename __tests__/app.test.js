@@ -18,8 +18,18 @@ describe('demo routes', () => {
       .post('/api/pokemon/weight')
       .send({ pokemon: 'haunter', pounds: 1 })
       .then(res => {
-        console.log(res.body);
         expect(res.body).toEqual({ id: expect.any(Number), pokemon: 'haunter', pounds: 1 });
+      });
+  });
+
+  it('should return all pokemon using GET / route', async () => {
+    await request(app)
+      .post('/api/pokemon/weight')
+      .send({ pokemon: 'haunter', pounds: 1 });
+    return request(app)
+      .get('/api/pokemon/weight')
+      .then(res => {
+        expect(res.body).toEqual([{ id: 1, pokemon: 'venusaur-mega', pounds: 1555 }, { id: 2, pokemon: 'haunter', pounds: 1 }]);
       });
   });
 
