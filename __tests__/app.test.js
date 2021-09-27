@@ -32,6 +32,16 @@ describe('demo routes', () => {
         expect(res.body).toEqual([{ id: 1, pokemon: 'venusaur-mega', pounds: 1555 }, { id: 2, pokemon: 'haunter', pounds: 1 }]);
       });
   });
+  it('should return a single pokemon using GET /:id route', async () => {
+    await request(app)
+      .post('/api/pokemon/weight')
+      .send({ pokemon: 'haunter', pounds: 1 });
+    return request(app)
+      .get('/api/pokemon/weight/2')
+      .then(res => {
+        expect(res.body).toEqual({ id: 2, pokemon: 'haunter', pounds: 1 });
+      });
+  });
 
   afterAll(() => {
     pool.end();
