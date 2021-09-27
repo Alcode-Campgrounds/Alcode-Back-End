@@ -41,6 +41,14 @@ describe('demo routes for weight', () => {
         expect(response.body).toEqual({ id: 2, pokemon: 'meowth', powers: 'pickup' });
       });
   });
+  it('should update a pokemon by its id using PUT /:id route', async () => {
+    return request(app)
+      .put('/api/pokemon/ability/1')
+      .send({ pokemon: 'Venonant', powers: 'Compound-eyes' })
+      .then(response => {
+        expect(response.body).toEqual({ id: 1, pokemon: 'venonat', powers: 'compound-eyes' });
+      });
+  });
   afterAll(() => {
     pool.end();
   });
