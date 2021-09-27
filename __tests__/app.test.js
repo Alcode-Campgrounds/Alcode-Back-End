@@ -42,6 +42,17 @@ describe('demo routes', () => {
         expect(res.body).toEqual({ id: 2, pokemon: 'haunter', pounds: 1 });
       });
   });
+  it('returns a corrected version using a PUT route', async () => {
+    await request(app)
+      .post('/api/pokemon/weight')
+      .send({ pokemon: 'haunter', pounds: 1 });
+    return request(app)
+      .put('/api/pokemon/weight/2')
+      .send({ id: 2, pokemon: 'Haunter', pounds: 1 })
+      .then(res => {
+        expect(res.body).toEqual({ id: 2, pokemon: 'Haunter', pounds: 1 });
+      });
+  });
 
   afterAll(() => {
     pool.end();
