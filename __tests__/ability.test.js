@@ -28,7 +28,7 @@ describe('demo routes for weight', () => {
     return request(app)
       .get('/api/pokemon/ability')
       .then(response => {
-        expect(response.body).toEqual([{ id: 1, pokemon: 'venonant', ability: 'compound-eyes' }, { id: 2, pokemon: 'meowth', powers: 'pickup' }]);
+        expect(response.body).toEqual([{ id: 1, pokemon: 'venonat', powers: 'compound-eyes' }, { id: 2, pokemon: 'meowth', powers: 'pickup' }]);
       });
   });
   afterAll(() => {
