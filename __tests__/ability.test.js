@@ -31,6 +31,16 @@ describe('demo routes for weight', () => {
         expect(response.body).toEqual([{ id: 1, pokemon: 'venonat', powers: 'compound-eyes' }, { id: 2, pokemon: 'meowth', powers: 'pickup' }]);
       });
   });
+  it('should return a pokemon by its id using GET /:id route', async () => {
+    await request(app)
+      .post('/api/pokemon/ability')
+      .send({ pokemon: 'meowth', powers: 'pickup' });
+    return request(app)
+      .get('/api/pokemon/ability/2')
+      .then(response => {
+        expect(response.body).toEqual({ id: 2, pokemon: 'meowth', powers: 'pickup' });
+      });
+  });
   afterAll(() => {
     pool.end();
   });
