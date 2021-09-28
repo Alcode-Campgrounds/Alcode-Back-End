@@ -11,7 +11,7 @@ describe('demo routes for weight', () => {
   beforeEach(async () => {
     return request(app)
       .post('/api/pokemon/height')
-      .send(fetchHeight());
+      .send(await fetchHeight());
   });
   it('should return a pokemon name and length using POST route', () => {
     return request(app)
@@ -21,13 +21,17 @@ describe('demo routes for weight', () => {
         expect(response.body).toEqual({ id: expect.any(Number), pokemon: 'meowth', length: 22 });
       });
   });
-  it('should return all pokemon using GET / route', () => {
+  it('should return all pokemon using GET / route', async () => {
+    await request(app)
+      .post('/api/pokemon/height')
+      .send({ pokemon: 'meowth', length: 22 });
     return request(app)
       .get('/api/pokemon/height')
       .then(response => {
-        expect(response.body).toEqual({ id: 2, pokemon: 'meowth', length: 22 });
+        expect(response.body).toEqual([{ id: 1, pokemon: 'articuno', length: 17 }, { id: 2, pokemon: 'meowth', length: 22 }]);
       });
   });
+
   afterAll(() => {
     pool.end();
   });
