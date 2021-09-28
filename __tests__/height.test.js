@@ -52,7 +52,7 @@ describe('demo routes for weight', () => {
         expect(response.body).toEqual({ id: 2, pokemon: 'Meowth', length: 122 });
       });
   });
-  it('should update a pokemon by id using PUT /:id route', async () => {
+  it('should delete a pokemon by id using DELETE /:id route', async () => {
     await request(app)
       .post('/api/pokemon/height')
       .send({ pokemon: 'meowth', length: 22 });

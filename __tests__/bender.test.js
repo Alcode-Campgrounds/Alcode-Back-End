@@ -46,7 +46,7 @@ describe('demo routes for weight', () => {
         expect(res.body).toEqual({ id: 2, character: 'bender', quote: expect.any(String) });
       });
   });
-  it('should get a quote specified by its id from bender using PUT /:id route', async () => {
+  it('should update a quote specified by its id from bender using PUT /:id route', async () => {
     return request(app)
       .put('/api/bender/quote/2')
       .send({ character: 'BENDER' })
