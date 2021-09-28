@@ -51,7 +51,7 @@ describe('demo routes for weight', () => {
         expect(res.body).toEqual({ id: 2, character: 'Amy', quote: expect.any(String) });
       });
   });
-  it('should delete an object from amy using PUT /:id route', async () => {
+  it('should delete an object from amy using DELETE /:id route', async () => {
     return request(app)
       .delete('/api/amy/quote/1')
       .then(res => {
