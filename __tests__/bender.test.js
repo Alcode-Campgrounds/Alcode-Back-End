@@ -61,6 +61,7 @@ describe('demo routes for weight', () => {
         expect(res.body).toEqual({ id: 2, character: 'bender', quote: expect.any(String) });
       });
   });
+  
   afterAll(() => {
     pool.end();
   });
