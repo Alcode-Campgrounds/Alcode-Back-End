@@ -36,6 +36,16 @@ describe('demo routes for weight', () => {
         expect(res.body).toEqual([{ id: 1, character: 'bender', quote: expect.any(String) }, { id: 2, character: 'bender', quote: expect.any(String) }, { id: 3, character: 'bender', quote: expect.any(String) }]);
       });
   });
+  it('should get a quote specified by its id from bender using GET /:id route', async () => {
+    await request(app)
+      .post('/api/bender/quote')
+      .send({ character: 'bender' });
+    return request(app)
+      .get('/api/bender/quote/2')
+      .then(res => {
+        expect(res.body).toEqual({ id: 2, character: 'bender', quote: expect.any(String) });
+      });
+  });
   afterAll(() => {
     pool.end();
   });
