@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS weight;
 DROP TABLE IF EXISTS ability;
+DROP TABLE IF EXISTS height;
 
 CREATE TABLE weight (
     id SERIAL PRIMARY KEY,
@@ -10,4 +11,9 @@ CREATE TABLE ability (
     id SERIAL PRIMARY KEY,
     pokemon TEXT NOT NULL,
     powers TEXT NOT NULL
+);
+CREATE TABLE height (
+    id SERIAL PRIMARY KEY,
+    pokemon TEXT NOT NULL,
+    length INTEGER NOT NULL
 )
