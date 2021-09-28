@@ -31,6 +31,16 @@ describe('demo routes for weight', () => {
         expect(response.body).toEqual([{ id: 1, pokemon: 'articuno', length: 17 }, { id: 2, pokemon: 'meowth', length: 22 }]);
       });
   });
+  it('should return a pokemon by id using GET /:id route', async () => {
+    await request(app)
+      .post('/api/pokemon/height')
+      .send({ pokemon: 'meowth', length: 22 });
+    return request(app)
+      .get('/api/pokemon/height/2')
+      .then(response => {
+        expect(response.body).toEqual({ id: 2, pokemon: 'meowth', length: 22 });
+      });
+  });
 
   afterAll(() => {
     pool.end();
