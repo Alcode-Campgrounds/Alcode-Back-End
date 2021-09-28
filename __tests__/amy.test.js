@@ -43,6 +43,14 @@ describe('demo routes for weight', () => {
         expect(res.body).toEqual({ id: 2, character: 'amy', quote: expect.any(String) });
       });
   });
+  it('should get a quote with id of 2 from amy using GET /:id route', async () => {
+    return request(app)
+      .put('/api/amy/quote/2')
+      .send({ character: 'Amy' })
+      .then(res => {
+        expect(res.body).toEqual({ id: 2, character: 'Amy', quote: expect.any(String) });
+      });
+  });
   afterAll(() => {
     pool.end();
   });
