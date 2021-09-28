@@ -46,12 +46,19 @@ describe('demo routes for weight', () => {
         expect(res.body).toEqual({ id: 2, character: 'bender', quote: expect.any(String) });
       });
   });
-  it('should get a quote specified by its id from bender using GET /:id route', async () => {
+  it('should get a quote specified by its id from bender using PUT /:id route', async () => {
     return request(app)
       .put('/api/bender/quote/2')
       .send({ character: 'BENDER' })
       .then(res => {
         expect(res.body).toEqual({ id: 2, character: 'BENDER', quote: expect.any(String) });
+      });
+  });
+  it('should delete a quote specified by its id using DELETE /:id route', async () => {
+    return request(app)
+      .delete('/api/bender/quote/2')
+      .then(res => {
+        expect(res.body).toEqual({ id: 2, character: 'bender', quote: expect.any(String) });
       });
   });
   afterAll(() => {
