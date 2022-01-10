@@ -1,5 +1,5 @@
-import app from './lib/app.js';
-import pool from './lib/utils/pool.js';
+const app = require('./lib/app.js');
+const pool = require('./lib/utils/pool.js');
 
 const PORT = process.env.PORT || 7890;
 
@@ -9,6 +9,7 @@ app.listen(PORT, () => {
 });
 
 process.on('exit', () => {
+  // eslint-disable-next-line no-console
   console.log('Goodbye!');
   pool.end();
 });
