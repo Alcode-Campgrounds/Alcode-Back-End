@@ -17,15 +17,6 @@ jest.mock('../lib/middleware/ensure-auth.js', () => {
 describe('campgrounds information', () => {
 
   beforeEach(async () => {
-    // await request(app)
-    //   .post('/api/alcode/auth/signup')
-    //   .send({ name: 'Tanner', email: 'Tanner@email.com', password: 'password' });
-    // await request(app)
-    //   .post('/api/alcode/auth/login')
-    //   .send({ email: 'Tanner@email.com', password: 'password' })
-    //   .then((response) => {
-    //     expect(response.body).toEqual({ id: expect.any(String), name: 'Tanner', email: 'Tanner@email.com' });
-    //   });
     return setup(pool);
   });
 

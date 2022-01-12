@@ -21,3 +21,4 @@ jobs:
         SALT_ROUNDS: ${{secrets.SALT_ROUNDS}}
         AUTH_SECRET: ${{secrets.AUTH_SECRET}}
         PGSSLMODE: ${{secrets.PGSSLMODE}}
+        RECREATION_GOV_API_KEY: ${{secrets.RECREATION_GOV_API_KEY}}
