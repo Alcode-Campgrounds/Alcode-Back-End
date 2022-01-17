@@ -43,6 +43,19 @@ describe('campgrounds information', () => {
       facilityLatitude: expect.any(Number),
     });
   });
+  it('should return an object with campground info and images', async () => {
+    const res = await request(app).get('/api/alcode/campgrounds/facility/10000305');
+    expect(res.body).toEqual({
+      facilityID: expect.any(String),
+      facilityName: expect.any(String),
+      facilityDescription: expect.any(String),
+      facilityDirections: expect.any(String),
+      facilityPhone: expect.any(String),
+      facilityEmail: expect.any(String),
+      reservable: expect.any(Boolean),
+      imageArray: expect.arrayContaining([expect.any(String)])
+    });
+  });
 
   afterAll(() => {
     pool.end();
