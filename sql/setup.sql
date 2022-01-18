@@ -11,14 +11,14 @@ CREATE TABLE users (
 
 CREATE TABLE favorites (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    user_id BIGINT NOT NULL REFERENCES users(id),
+    user_email TEXT NOT NULL REFERENCES users(email),
     facility_id TEXT NOT NULL UNIQUE,
     facility_name TEXT NOT NULL,
-    facility_description TEXT NOT NULL,
-    facility_directions TEXT NOT NULL,
-    facility_phone TEXT NOT NULL,
+    facility_description TEXT,
+    facility_directions TEXT,
+    facility_phone TEXT,
     facility_email TEXT,
-    reservable BOOLEAN NOT NULL
+    reservable BOOLEAN 
 );
 
 CREATE TABLE images (
