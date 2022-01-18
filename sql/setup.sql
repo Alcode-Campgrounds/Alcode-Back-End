@@ -11,7 +11,8 @@ CREATE TABLE users (
 
 CREATE TABLE favorites (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    user_email TEXT NOT NULL REFERENCES users(email),
+    user_email TEXT NOT NULL,
+    FOREIGN KEY (user_email) REFERENCES users(email),
     facility_id TEXT NOT NULL UNIQUE,
     facility_name TEXT NOT NULL,
     facility_description TEXT,
@@ -23,10 +24,10 @@ CREATE TABLE favorites (
 
 CREATE TABLE images (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
-    favorites_facility_id TEXT NOT NULL REFERENCES favorites(facility_id),
+    favorites_facility_id TEXT NOT NULL,
+    FOREIGN KEY (favorites_facility_id) REFERENCES favorites(facility_id),
     url TEXT NOT NULL
-)
-
+);
 
 
 
