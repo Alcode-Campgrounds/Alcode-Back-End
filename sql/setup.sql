@@ -25,7 +25,7 @@ CREATE TABLE favorites (
 CREATE TABLE images (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     favorites_facility_id TEXT NOT NULL,
-    FOREIGN KEY (favorites_facility_id) REFERENCES favorites(facility_id),
+    FOREIGN KEY (favorites_facility_id) REFERENCES favorites(facility_id) ON DELETE CASCADE,
     url TEXT NOT NULL
 );
 
