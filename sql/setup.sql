@@ -22,6 +22,7 @@ CREATE TABLE favorites (
     reservable BOOLEAN 
 );
 
+-- Is a separate images table necessary?
 CREATE TABLE images (
     id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     favorites_facility_id TEXT NOT NULL,
